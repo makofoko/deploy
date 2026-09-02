@@ -1,6 +1,10 @@
-FROM python:3.11
+FROM python:3.11-slim
+
 WORKDIR /app
-COPY Pipfile Pipfile.lock ./
+
+COPY Pipfile Pipfile.lock* ./
 RUN pip install pipenv && pipenv install --system --deploy
+
 COPY . .
-CMD ["gunicorn", "shopapp.wsgi:application", "--bind", "0.0.0.0:8000"]
+
+CMD ["gunicorn", "deploying.wsgi:application", "--bind", "0.0.0.0:8000"]
