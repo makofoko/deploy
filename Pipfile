@@ -1,0 +1,12 @@
+[requires]
+python_version = "3.11"
+
+[packages]
+django = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+
+[dev-packages]
+
+[scripts]
+start = "gunicorn deploying.wsgi:application --bind 0.0.0.0:8000"
