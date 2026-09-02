@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список продуктов</title>
+</head>
+<body>
+    <h1>Наши продукты</h1>
+
+    {% if perms.shopapp.add_product %}
+      <a href="{% url 'shopapp:product_create' %}">Создать продукт</a>
+    {% endif %}
+
+    <ul>
+        {% for product in products %}
+            <li>
+                <strong>{{ product.name }}</strong> - {{ product.price }} руб.
+                <br>
+                <small>Добавлен: {{ product.created_at|date:"d.m.Y H:i" }}</small>
+            </li>
+        {% empty %}
+            <li>Нет доступных продуктов.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

@@ -1,0 +1,6 @@
+<h1>Удалить заказ #{{ object.pk }}?</h1>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Да, удалить</button>
+  <a href="{% url 'shopapp:orders_list' %}">Отмена</a>
+</form>

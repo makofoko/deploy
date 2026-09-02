@@ -1,0 +1,17 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DJANGO_DEBUG: 1
+    restart: always
+    depends_on:
+      - db
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: shopdb
+      POSTGRES_USER: shopuser
+      POSTGRES_PASSWORD: shoppass

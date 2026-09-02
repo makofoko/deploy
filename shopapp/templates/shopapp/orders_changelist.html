@@ -1,0 +1,6 @@
+{% extends "admin/change_list.html" %}
+{% block object-tools-items %}
+    <li>
+        <a href="{% url 'admin:shopapp_order_import' %}">Импорт заказов</a>
+    </li>
+{% endblock %}

@@ -1,0 +1,10 @@
+<!-- shopapp/templates/shopapp/order-detail.html -->
+<h1>Order #{{ order.id }}</h1>
+<p>Address: {{ order.delivery_address }}</p>
+<p>Promocode: {{ order.promocode }}</p>
+<p>User: {{ order.user.username }}</p>
+<ul>
+    {% for product in order.products.all %}
+        <li>{{ product.name }}</li>
+    {% endfor %}
+</ul>

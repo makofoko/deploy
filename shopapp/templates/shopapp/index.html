@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Магазин - Главная</title>
+</head>
+<body>
+    <h1>Добро пожаловать в магазин</h1>
+    <ul>
+        <li><a href="{% url 'shopapp:products_list' %}">Список продуктов</a></li>
+        <li><a href="{% url 'shopapp:orders_list' %}">Список заказов</a></li>
+    </ul>
+</body>
+</html>

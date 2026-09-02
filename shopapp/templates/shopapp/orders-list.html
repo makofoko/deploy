@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список заказов</title>
+</head>
+<body>
+    <h1>Заказы</h1>
+    <a href="{% url 'shopapp:index' %}">На главную</a>
+    <ul>
+        {% for order in orders %}
+            <li>
+                <strong>Заказ #{{ order.pk }}</strong> (Пользователь: {{ order.user.username }})
+                <br>
+                Адрес: {{ order.delivery_address }} | Промокод: {{ order.promocode }}
+                <br>
+                <strong>Товары в заказе:</strong>
+                <ul>
+                    {% for product in order.products.all %}
+                        <li>{{ product.name }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% empty %}
+            <li>Нет заказов.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

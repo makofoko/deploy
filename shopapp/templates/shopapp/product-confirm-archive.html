@@ -1,0 +1,6 @@
+<h1>Архивировать продукт "{{ object.name }}"?</h1>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Да, архивировать</button>
+  <a href="{% url 'shopapp:products_list' %}">Отмена</a>
+</form>
