@@ -4,6 +4,7 @@ python_version = "3.11"
 [packages]
 django = "*"
 djangorestframework = "*"
+django-filter = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
 
