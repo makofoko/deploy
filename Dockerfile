@@ -7,4 +7,4 @@ RUN pip install --upgrade pip && pip install pipenv && pipenv install --system -
 
 COPY . .
 
-CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "shopapp.wsgi:application", "--bind", "0.0.0.0:8000"]
