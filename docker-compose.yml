@@ -3,25 +3,25 @@ version: "3.9"
 services:
   web:
     build: .
-    command: gunicorn deploying.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn core.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - .:/app
     ports:
       - "8000:8000"
     depends_on:
       - db
+    environment:
+      DJANGO_DEBUG: 1
     restart: always
 
   db:
     image: postgres:15
     environment:
-      DJANGO_DEBUG: 1
-      POSTGRES_DB: deploying
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mydb
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    restart: always
 
 volumes:
   postgres_data:
